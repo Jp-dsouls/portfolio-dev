@@ -1,0 +1,48 @@
+---
+import Footer from "./Footer.astro";
+
+const today = new Date();
+---
+
+<div
+  class="block sticky pointer-events-none bottom-10 justify-center h-12 bg-[#0d1117]"
+>
+</div>
+
+<div
+  class="social-icons px-4 pb-2 pt-1 flex self-center justify-center sticky bottom-0 bg-[#0d1117]"
+>
+  <a
+    href="https://github.com/Jp-dsouls"
+    target="_blank"
+    class="mx-3"
+    aria-label="Github"
+    title="Github"
+  >
+    <i class="bx bxl-github text-white text-2xl"></i>
+  </a>
+
+  <a
+    href="https://gitlab.com/werras04"
+    target="_blank"
+    class="mx-3"
+    aria-label="GitLab"
+    title="GitLab"
+  >
+    <i class="bx bxl-gitlab text-white text-2xl"></i>
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/cesar-junior-pezantes-silva-1047551a1/"
+    target="_blank"
+    class="mx-3"
+    aria-label="Linkedin"
+    title="Linkedin"
+  >
+    <i class="bx bxl-linkedin text-white text-2xl"></i>
+  </a>
+</div>
+
+<div class="flex justify-center flex-col items-center">
+    <Footer/>
+</div>

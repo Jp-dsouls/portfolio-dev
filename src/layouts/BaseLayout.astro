@@ -1,0 +1,40 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
+import { ViewTransitions } from "astro:transitions";
+
+
+const {
+  image,
+  title = "Portfolio personal",
+  description = "Portfolio Website adaptado de una plantilla en la cual se encuentran las capacidades propias",
+  includeSidebar = true,
+  sideBarActiveItemID,
+  ogType,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="lofi">
+  <head>
+    <BaseHead title={title} description={description} image={image} , ogType={ogType} />
+    {<ViewTransitions />}
+  </head>
+  <body class="bg-[#f3f3f3]">
+    <div class="bg-base-100 drawer lg:drawer-open">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex-1">
+        <Header title={title} />
+        <div class="md:flex md:justify-center">
+          <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+            <slot />
+          </main>
+        </div>
+        <Footer />
+      </div>
+      {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
+    </div>
+  </body>
+</html>

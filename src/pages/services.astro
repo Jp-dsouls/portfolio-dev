@@ -1,0 +1,78 @@
+---
+import Title from "@components/Title.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contactame" sideBarActiveItemID="services">
+
+  <Title title="Contactame"/>
+
+  <form
+    action="https://formsubmit.co/werras04@gmail.com"
+    method="POST"
+    class="rounded-lg hover:shadow-xl transition ease-in-out lg:w-[80vh]"
+  >
+    <div class="">
+      <label
+        for="fullname"
+        class="block text-sm font-semibold leading-6 text-black mb-3"
+        >Nombre Completo
+        <div class="mt-2.5">
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            autocomplete="given-name"
+            class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+          />
+        </div>
+      </label>
+      <label
+        for="email"
+        class="block text-sm font-semibold leading-6 text-black mb-3"
+        >Correo
+        <div class="mt-2.5">
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+          />
+        </div>
+      </label>
+      <label
+        for="subject"
+        class="block text-sm font-semibold leading-6 text-black mb-3"
+        >Asunto
+        <div class="mt-2.5">
+          <input
+            type="text"
+            name="subject"
+            autocomplete="organization"
+            class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+          />
+        </div>
+      </label>
+      <label
+        for="message"
+        class="block text-sm font-semibold leading-6 text-black mb-3"
+        >Mensaje
+        <div class="mt-2.5">
+          <textarea
+            name="message"
+            id="message"
+            rows="4"
+            class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+          ></textarea>
+        </div>
+      </label>
+    </div>
+    <div class="mt-5">
+      <button
+        type="submit"
+        class="block w-full rounded-md bg-[#0d1117] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#253041] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >Enviar</button
+      >
+    </div>
+  </form>
+</BaseLayout>

@@ -22,17 +22,17 @@ const {
     {<ViewTransitions />}
   </head>
   <body class="bg-[#f3f3f3]">
-    <div class="bg-base-100 drawer lg:drawer-open">
+    <main class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex-1">
+      <div class="drawer-content flex items-center flex-1">
         <Header title={title} />
         <div class="md:flex md:justify-center">
-          <main class="p-6 pt-10 lg:w-auto">
+          <section class="p-6 pt-10 lg:w-auto">
             <slot />
-          </main>
+          </section>
         </div>
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
-    </div>
+    </main>
   </body>
 </html>

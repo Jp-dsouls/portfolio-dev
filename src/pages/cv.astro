@@ -53,7 +53,19 @@ En mi rol como Asistente Logístico para la Gaming House en Mall del Sur, gestio
   <Title title="Skills"/>
 
   <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
+<div class="image-container">
+  <div class="zoom">
+    <a href="#" class="zoomTrigger" data-zoom="../../public/profile.png">
+      <i class="fa fa-search-plus fa-2x" aria-hidden="true"></i>
+      asd
+    </a>
+  </div>
+</div>
+
+<div id="modalContainer" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="imgZoom" style="width:1920px;" alt="Calea Comp">
+</div>
     <li>Skill Name</li>
     <li>Skill Name</li>
     <li>Skill Name</li>
@@ -70,3 +82,123 @@ En mi rol como Asistente Logístico para la Gaming House en Mall del Sur, gestio
     <li>Skill Name</li>
   </ul>
 </BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Selector de todos los elementos con la clase 'zoomTrigger'
+    const zoomTriggers = document.querySelectorAll(".zoomTrigger");
+
+    zoomTriggers.forEach(trigger => {
+      trigger.addEventListener("click", function(e) {
+        e.preventDefault(); // Evita que el enlace se siga
+
+        // Obtener la imagen grande de los atributos de datos
+        const bigImage = this.dataset.zoom;
+        const imgZoom = document.getElementById("imgZoom") as HTMLImageElement; // Aserción de tipo a HTMLImageElement
+
+        // Verificar si imgZoom existe antes de usarlo
+        if (imgZoom) {
+          imgZoom.src = bigImage; // Asigna el 'src' de la imagen
+
+          // Mostrar el modal
+          const modal = document.querySelector(".modal") as HTMLElement; // Aserción de tipo a HTMLElement
+          if (modal) {
+            modal.style.display = "block";
+          }
+        }
+      });
+    });
+
+    // Evento click para cerrar el modal
+    const closeButton = document.querySelector(".close") as HTMLElement; // Aserción de tipo a HTMLElement
+    if (closeButton) {
+      closeButton.addEventListener("click", function() {
+        const modal = document.querySelector(".modal") as HTMLElement; // Aserción de tipo a HTMLElement
+        if (modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+
+    // Cierra el modal si se hace clic fuera de la imagen
+    const modal = document.querySelector(".modal") as HTMLElement; // Aserción de tipo a HTMLElement
+    if (modal) {
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .image-container{
+  width: 90%;
+  max-width:25rem;
+  margin: 2rem auto;
+}
+.image-container img{
+  max-width: 100%;
+  }
+.zoomTrigger {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.zoomTrigger:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 0; /* Location of the box */
+  margin:0;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+  animation-name: zoom;
+  animation-duration: 0.7s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: fixed;
+  top: 15px;
+  right: 35px;
+  color: #222;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
